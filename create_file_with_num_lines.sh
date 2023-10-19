@@ -5,9 +5,21 @@ echo "and inserts number of the lines"
 echo
 read -p "Enter number of string you'd like generate:  " num_str
 
-num=0
-while [ $num -le $num_str ]
+# With WHILE loop
+
+#num=0
+#while [ $num -le $num_str ]
+#do
+#	num=$(( $num + 1 ))
+#	echo $num $(fortune)
+#done
+
+# With for loop
+
+echo > fortune_file.txt
+for i in $(seq 1 $num_str)
 do
-	num=$(( $num + 1 ))
-	echo $num $(fortune)
+	echo $i $(fortune) >> fortune_file.txt 
+	
 done
+cat fortune_file.txt
